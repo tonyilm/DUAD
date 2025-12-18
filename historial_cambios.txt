@@ -1,0 +1,20 @@
+commit e3e15cd748161334e13c7b27393e3c365e523b41 (origin/main, origin/HEAD, main)
+Author: tonyilm <anthonycsanchez02@outlook.com>
+Date:   Mon Dec 15 22:11:25 2025 -0600
+
+    Initial commit
+
+Que cambió? Se hizo el commit inicial despues de crear el branch past-exercises
+
+Por que se hizo ese cambio? El cambio era necesario para completar los ejercicios de Git de Semana 9
+
+
+
+commit b73a91fb98fb5b937758289190234bf61ea806a6 (HEAD -> past-exercises, origin/past-exercises)
+Author: Anthony Cerdas <anthonycsanchez02@outlook.com>
+Date:   Wed Dec 17 22:03:46 2025 -0600
+
+    Uploading past exercises
+
+Qué cambió? Se terminaron de añadir los ejercicios de la semana 1 a la 8 al branch past-exercises
+Por que se hizo ese cambio? Este cambio se hizo con el fin de completar el ejercicio 1 de Git de Semana 9 

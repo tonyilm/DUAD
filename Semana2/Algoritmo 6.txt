@@ -1,0 +1,40 @@
+Algoritmo 6
+
+1.Inicio
+2.Definir numero_sexo
+3.Definir contador
+4.Definir contador_hombres
+5.Definir contador_mujeres
+6.Definir mujeres
+8.Definir hombres
+9.Definir cantidad_de_personas
+10.Definir porcentaje_hombres
+11.Definir porcentaje_mujeres
+12.Definir total
+13.cantidad_de_personas=6
+14.contador=0
+15.contador_hombres=0
+16.contador_mujeres=0
+17.Mientras que contador<cantidad_de_personas hacer:
+   Mostrar "Ingrese sexo numero"
+   Mostrar contador+1
+   Pedir numero_sexo
+   Si numero_sexo=2 entonces
+      contador_hombres=contador_hombres+1
+  Sino
+   Si numero_sexo=2 entonces
+     contador_mujeres=contador_mujeres+1
+  FinSi
+  contador=contador+1
+
+18.FinMientras
+19.total=contador_hombres+contador_mujeres
+20.porcentaje_mujeres=contador_mujeres/total*100
+21.porcentaje_hombres=contador_hombres/total*100
+22.Mostrar porcentaje_hombres
+23.Mostrar "hombres"
+24.Mostrar porcentaje_mujeres
+25.Mostrar "mujeres"
+26.Fin
+     
+     

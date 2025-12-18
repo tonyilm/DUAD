@@ -1,0 +1,25 @@
+import json
+
+
+def pokemon_search_function(filepath):
+        with open(filepath, "r", encoding="utf-8") as file:
+              data = json.load(file)
+        type_search = input("Ingrese el tipo de pokemon desea buscar(water,fire,electric,etc): ").lower()
+        results = []
+
+        for pokemon in data:
+             types = [t.lower() for t in pokemon["type"]]        
+             if type_search in types:
+                   results.append(pokemon['name']['english'])
+        
+        if len(results) > 0:
+              print(f"Los pokemons que existen de ese tipo son :")
+              for name in results:
+                    print(name)
+        else:
+              print(f"No se encontraron pokemones de tipo {type_search}")
+
+
+
+
+pokemon_search_function("newjson.json")

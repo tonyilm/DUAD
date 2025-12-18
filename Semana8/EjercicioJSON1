@@ -1,0 +1,69 @@
+import json
+import os
+
+
+def rw_json_function(filepath,data):
+    if not os.path.exists(filepath):
+        existing_data = []
+    else:
+        try:
+            with open(filepath, "r", encoding="utf-8") as file:
+                existing_data = json.load(file)
+        except:
+            existing_data = []
+
+    existing_data.extend(data)
+
+    with open(filepath, "w", encoding="utf-8") as file:
+        json.dump(existing_data,file,indent=4)
+    
+
+
+number_of_pokemons = int(input("Ingrese el numero de pokemones a agregar : "))
+pokemon_list = []
+
+for index in range(number_of_pokemons):
+    print(f"Ingresando pokemon numero {index+1}")
+    nombre = input("Nombre :")
+    tipo = input("Tipo :")
+    hp = input("HP :")
+    ataque = input("Ataque :")
+    defensa = input("Defensa :")
+    spattack =input("SpAtaque :")
+    spdefensa =input("SpDefensa :")
+    velocidad =input("Velocidad :")
+
+    new_pokemon = {
+        "name": {"english": nombre},
+        "type": [tipo],
+        "base": {
+            "HP": int(hp),
+            "Attack": int(ataque),
+            "Defense": int(defensa),
+            "Sp. Attack": int(spattack),
+            "Sp. Defense": int(spdefensa),
+            "Speed": int(velocidad)
+        }
+    }
+
+
+    pokemon_list.append(new_pokemon)
+
+
+rw_json_function("newjson.json",pokemon_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

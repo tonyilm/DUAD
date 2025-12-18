@@ -1,0 +1,15 @@
+import json
+
+
+def pokemon_stats(filepath):
+        with open(filepath, "r", encoding="utf-8") as file:
+              data = json.load(file)
+
+
+        for pokemon in data:
+               print(f"Nombre: {pokemon['name']['english']}")
+               for stat, value in pokemon["base"].items():
+                     print(f"  {stat}: {value}")
+
+
+pokemon_stats("newjson.json")

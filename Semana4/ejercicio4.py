@@ -1,0 +1,5 @@
+number1=input("Ingrese el primer numero:")
+number2=input("Ingrese el segundo numero:")
+number3=input("Ingrese el tercer numero:")
+maxnumber=max(number1,number2,number3)
+print(f"El numero es mayor es: {maxnumber}")

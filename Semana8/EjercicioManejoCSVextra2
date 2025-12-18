@@ -1,0 +1,24 @@
+import csv
+
+
+
+def esrb_rating_function(file_path):
+    with open(file_path,"r",encoding="utf-8") as file:
+        reader = csv.reader(file)
+
+        headers= next(reader)
+        esrb_rating = input("Ingrese la clasificacion ESRB a buscar : ").strip().upper()
+        found = False
+        
+        
+        for row in reader:
+                if row[3].upper() == esrb_rating:
+                    found = True
+                    print(f"{esrb_rating} : {row[0]}")
+        if not found:
+                      print("No se encontraron juegos con la clasificacion seleccionada")
+
+            
+
+
+esrb_rating_function("videogames.csv")

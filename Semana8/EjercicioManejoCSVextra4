@@ -1,0 +1,24 @@
+import csv
+
+
+
+def find_developer_function(file_path):
+    with open(file_path,"r",encoding="utf-8") as file:
+        reader = csv.reader(file)
+
+        headers= next(reader)
+        developer = input("Ingrese el nombre de un desarollador : ").strip().upper()
+        found = False
+        
+        
+        for row in reader:
+                if row[2].upper() == developer:
+                    found = True
+                    print(f"Videojuegos desarollados por {developer} : - {row[0]} (Género : {row[1]} , Clasificación : {row[3]} ) ")
+        if not found:
+                      print(f"No se encontraron juegos desarollados por {developer}")
+
+            
+
+
+find_developer_function("videogames.csv")

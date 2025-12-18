@@ -1,0 +1,17 @@
+1.Inicio
+2.Definir precio_de_producto
+3.Definir descuento
+4.Definir precio_final
+5.Mostrar "Ingrese precio del producto"
+6.Pedir precio_de_producto
+7.Si (precio_de_producto>=100)entonces:
+  a.descuento=precio_de_producto * 0.1
+8.Sino:
+  a.descuento=precio_de_producto*0.02
+9.FinSi
+10.precio_final=precio_de_producto-descuento
+12.Mostrar "El precio final del producto es"
+12.Mostrar precio_final
+13.Fin
+
+

@@ -1,0 +1,11 @@
+Algoritmo 5
+
+1.Inicio
+2.Definir velocidad_en_kilometros_por_hora
+3.Definir velocidad_en_metros_por_segundo
+3.Mostrar "Ingrese la velocidad en km/h"
+4.Pedir velocidad_en_kilometros_por_hora
+5.velocidad_en_metros_por_segundo=velocidad_en_kilometros_por_hora/3.6
+6.Mostrar "La velocidad en m/s es"
+7.Mostrar velocidad_en_metros_por_segundo
+8.Fin

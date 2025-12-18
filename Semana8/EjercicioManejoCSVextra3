@@ -1,0 +1,23 @@
+import csv
+
+
+def game_genre_function(file_path):
+    with open(file_path,"r",encoding="utf-8") as file:
+        reader = csv.reader(file)
+        headers= next(reader)
+        genres = {}
+       
+        for row in reader:
+            genre = row[1].strip()
+
+            if genre in genres:
+                  genres[genre] += 1
+            else:
+                genres[genre] = 1
+
+    print("Géneros encontrados:")
+    for genre, number_of_genres in genres.items():
+        print(f"{genre}: {number_of_genres}")      
+
+
+game_genre_function("videogames.csv")

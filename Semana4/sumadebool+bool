@@ -1,0 +1,4 @@
+bool1=False
+bool2=True
+sumbool=bool1+bool2
+print(sumbool)

@@ -1,0 +1,52 @@
+Rutina diaria V1:
+
+1. Inicio
+2. Apagar alarma
+3. Levantarse de la cama
+4. Si el día es Lunes, Martes, Jueves, o Viernes:
+
+    i. Encender computadora de trabajo
+
+    ii. Iniciar jornada laboral
+
+5. Sino, si el día es Miércoles:
+
+     i. Manejar al trabajo
+
+     ii. Iniciar jornada laboral
+
+6. Terminar jornada laboral
+7. Ir al gimnasio
+8. Mientras que esté en el gimnasio:
+
+       i. Si tiene rutina establecida:
+
+        a.Hacer ejercicios de rutina establecida
+
+       ii. Sino:
+
+        a.Obtenga una rutina de su coach
+
+9. Por cada ejercicio de la rutina de ejercicios:
+
+       i. Entender ejercicio
+
+       ii. Realizar ejercicio
+
+10. Llegar a la casa
+11. Preparar cena
+12. Cenar
+13. Encender computadora personal
+14. Si está cansado y tiene sueño:
+
+    i. Buscar la cama
+
+    ii. Dormir
+
+15. Sino:
+
+   i. Estudiar clase del día
+
+   ii. Ir a dormir
+
+16. Fin

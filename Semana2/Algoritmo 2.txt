@@ -1,0 +1,23 @@
+Algoritmo 2
+
+1.Inicio
+2.Definir tiempo_en_segundos
+3.Definir diez_minutos
+4.Definir resultado
+5.diez_minutos=600
+6.Mostrar "Ingrese el tiempo en segundos
+7.Pedir tiempo_en_segundos
+8.Si (tiempo_en_segundos es<diez_minutos) entonces:
+     resultado=diez_minutos-tiempo_en_segundos
+      Mostrar resultado
+      Mostrar "Cantidad de segundos que faltan para los 10 minutos"
+  Sino
+    Si tiempo_en_segundos>diez minutos entonces:
+    Mostrar "Mayor"
+    Sino
+    Mostrar "Igual"
+9.FinSi
+10.Fin
+      
+  
+

@@ -1,0 +1,28 @@
+import json
+
+
+def pokemon_level_avg(filepath):
+        with open(filepath, "r", encoding="utf-8") as file:
+                data = json.load(file)
+
+        types = {}
+
+        for pokemon in data:
+               stats_total = sum(pokemon["base"].values())
+
+               for t in pokemon["type"]:
+                      type = t.lower()
+
+        
+                      if type not in types:
+                             types[type] = []
+        
+                      types[type].append(stats_total)
+
+        for type,total_list in types.items():
+               average = sum(total_list)/len(total_list)
+               print(f"Tipo : {type} → Promedio de nivel (stats base): {average}")
+
+
+
+pokemon_level_avg("newjson.json")

@@ -1,0 +1,5 @@
+print("Lorem ipsum dolor sit amet")
+print ("There are many variations of passages of Lorem Ipsum available")
+print ("Contrary to popular belief, Lorem Ipsum is not simply random text") 
+print ("It has roots in a piece of classical Latin literature from 45 BC") 
+print ("This is ending")

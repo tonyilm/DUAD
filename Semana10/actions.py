@@ -3,7 +3,7 @@ import os
 import data
 from errors import review_grade, GradeOutOfRangeError,review_valid_name,InvalidNameError,review_valid_section,InvalidSectionError,review_valid_input
 
-def add_new_student_to_CSV(file_path) :
+def add_new_student(temp_student_list) :
     while True:
         try:
             number_of_students = input("Ingrese la cantidad de estudiantes que desea agregar : ")
@@ -83,25 +83,18 @@ def add_new_student_to_CSV(file_path) :
         
         
 
-        student_list.append(new_student)
-        print("Se agregó los estudiantes con éxito")
-
-    if student_list:
-        headers = list(student_list[0].keys())
-        data.export_students_to_csv(file_path,student_list,headers)
-        print("¡Datos exportados con éxito!")
-        print("\n") 
+        temp_student_list.append(new_student)
+        print("Se agregó los estudiantes a la lista con éxito")
 
 
 
-def view_existing_student(file_path):
+def view_existing_student(temp_student_list):
     print("Información de estudiantes existentes\n")
-    students = data.import_all_students(file_path)
         
-    if not students:
-        print("No hay estudiantes registrados o el archivo no existe.")
+    if not temp_student_list:
+        print("No hay estudiantes en la lista.")
         return
-    for index, student in enumerate(students, start=1):
+    for index, student in enumerate(temp_student_list, start=1):
                 print(f"Estudiante número {index} \n-------------------------------------")
                 
                 for key, value in student.items():
@@ -109,13 +102,12 @@ def view_existing_student(file_path):
                 print("\n") 
               
           
-def view_top_three(file_path):
+def view_top_three(temp_student_list):
         print("Top 3 estudiantes con mejor nota promedio :\n")
-        students = data.import_all_students(file_path)
         
         average_list = []
 
-        for row in students:
+        for row in temp_student_list:
             total = 0
             grade_counter = 0
             for key,value in row.items():
@@ -133,14 +125,13 @@ def view_top_three(file_path):
         print("\n")
 
 
-def view_student_average(file_path):
-        students = data.import_all_students(file_path)
+def view_student_average(temp_student_list):
         print("Nota promedio de estudiantes :\n")
 
         
         average_list = []
 
-        for row in students:
+        for row in temp_student_list:
             total = 0
             grade_counter = 0
             for key,value in row.items():
@@ -158,15 +149,14 @@ def view_student_average(file_path):
              print(f"{i}. {name} : {average:}")
         print("\n")
 
-def delete_existing_student(file_path):
+def delete_existing_student(temp_student_list):
     name_to_search = input("Ingrese el nombre del estudiante que desea eliminar (Nombre y Apellido) : ").strip()
     rows = []
-    students = data.import_all_students(file_path)
     exists = False
     status = "Unverified"
 
     
-    for row in students:
+    for row in temp_student_list:
          if row["Nombre completo"].strip().lower() == name_to_search.lower():
             print(f"Estudiante encontrado : {name_to_search}")
             exists = True
@@ -183,7 +173,8 @@ def delete_existing_student(file_path):
               rows.append(row)
                 
     if exists and status == "Verified":
-        data.overwrite_all_students(file_path, rows)
+        temp_student_list.clear()
+        temp_student_list.extend(rows)
         print(f"El estudiante '{name_to_search}' ha sido eliminado exitosamente.")
     elif not exists:
          print(f"Error: El estudiante '{name_to_search}' no existe en el registro. Asegúrese de escribir el nombre en formato Nombre + Apellido")
@@ -191,14 +182,13 @@ def delete_existing_student(file_path):
          print("Operación cancelada por el usuario.")
 
 
-def view_failed_students(file_path):
+def view_failed_students(temp_student_list):
     subjects = ["Nota de español", "Nota de inglés", "Nota de sociales", "Nota de ciencias"]
     found = False
-    students = data.import_all_students(file_path)
     print("Lista de estudiantes con notas reprobadas, sección y materia de la nota : ")
     print("------------------------------------------------------------------------------")
 
-    for row in students:
+    for row in temp_student_list:
         failed_grades = []
 
         for s in subjects:
@@ -216,3 +206,24 @@ def view_failed_students(file_path):
 
     if not found:
          print("No se encontraron estudiantes con notas reprobadas.")
+
+def export_to_csv(student_list, file_path):
+    if not student_list:
+        print("No hay estudiantes en la lista para exportar.")
+        return
+    confirm = input("¿Está seguro de que desea exportar? Esto sobreescribirá el CSV. (Escriba SI para continuar): ").strip().upper()
+    if confirm == "SI":
+        headers = list(student_list[0].keys())
+        data.overwrite_all_students(file_path, student_list)
+        print("¡Estudiantes exportados al CSV con éxito!\n")
+    else:
+        print("Exportación cancelada.\n")
+
+def import_from_csv(temp_student_list, file_path):
+    imported = data.import_all_students(file_path)
+    if not imported:
+        print("No se encontraron estudiantes en el CSV.")
+        return
+    temp_student_list.clear()
+    temp_student_list.extend(imported)
+    print(f"Se importaron los estudiantes del CSV.\n")

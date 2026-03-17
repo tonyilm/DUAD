@@ -1,6 +1,4 @@
 
-
-
 class InvalidNameError(Exception):
     pass
 

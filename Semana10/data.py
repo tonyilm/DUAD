@@ -1,14 +1,6 @@
 import csv
 import os
 
-def export_students_to_csv(file_path, student_list, headers):
-    file_exists = os.path.exists(file_path)
-    with open(file_path, "a", encoding="utf-8", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=headers)
-        if not file_exists:
-            writer.writeheader()
-        writer.writerows(student_list)
-
 def import_all_students(file_path):
     try:
         with open(file_path, "r", encoding="utf-8", newline="") as file:
